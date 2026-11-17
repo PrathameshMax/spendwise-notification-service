@@ -29,8 +29,7 @@ jobs:
           java-version: '21'
           cache: maven
 
-      # spendwise-shared's packages must grant this repository read access:
-      # package settings -> Manage Actions access -> add spendwise-notification-service.
+      
       - name: Build and test
         run: ./mvnw -B -ntp -s ci-settings.xml verify
         env:
