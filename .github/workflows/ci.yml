@@ -34,7 +34,7 @@ jobs:
       - name: Build and test
         run: ./mvnw -B -ntp -s ci-settings.xml verify
         env:
-          GITHUB_PACKAGES_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GITHUB_PACKAGES_TOKEN: ${{ secrets.PACKAGES_READ_TOKEN }}
 
       - name: Upload test reports
         if: failure()
@@ -64,6 +64,6 @@ jobs:
             ${{ env.IMAGE }}:${{ github.sha }}
             ${{ env.IMAGE }}:main
           secrets: |
-            gh_token=${{ secrets.GITHUB_TOKEN }}
+            gh_token=${{ secrets.PACKAGES_READ_TOKEN }}
           cache-from: type=gha
           cache-to: type=gha,mode=max
