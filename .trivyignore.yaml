@@ -1,0 +1,17 @@
+# Accepted-risk register read by the SCA gate (spendwise-ci java-service.yml).
+# Every entry needs a reason and an expiry; an expired entry fails the gate again.
+
+vulnerabilities:
+  # spring-webmvc 6.2.x: fixed only in Spring Framework 7.0.9 (Spring Boot 4).
+  - id: CVE-2026-47884
+    statement: >-
+      spring-webmvc XsltView path limitation. Not reachable: the service serves JSON over @RestController only; no XsltView or ViewResolver.
+      Removed by the Spring Boot 4 migration.
+    expired_at: 2027-02-28
+
+  # spring-webmvc / spring-webflux 6.2.x: fixed only in Spring Framework 7.0.9 (Spring Boot 4).
+  - id: CVE-2026-47890
+    statement: >-
+      Server-Sent Events with view rendering. Not reachable: no SseEmitter or text/event-stream endpoints and no rendered views.
+      Removed by the Spring Boot 4 migration.
+    expired_at: 2027-02-28
